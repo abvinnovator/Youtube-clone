@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css"
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Sign In</div>
+        <form action="" class="form" onsubmit="return validateForm()">
+          <input required="" class="input" type="email" name="email" id="email" placeholder="E-mail">
+          <input required="" class="input" type="password" name="password" id="password" placeholder="Password">
+          <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+          <input class="login-button" type="submit" value="Sign In">
+        </form>
+        <div class="social-account-container">
+          <span class="title">Or Sign in with</span>
+          <div class="social-accounts">
+            <!-- Social login buttons -->
+          </div>
+        </div>
+        <span class="agreement"><a href="#">Learn user licence agreement</a></span>
+      </div>
+      
+      <script>
+        function validateForm() {
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+      
+          // Simple email validation
+          var emailPattern = /\S+@\S+\.\S+/;
+          if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return false;
+          }
+      
+          // Password complexity validation
+          var passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/;
+          if (!passwordPattern.test(password)) {
+            alert('Password should be at least 8 characters long, contain at least one uppercase letter, and one special symbol (!@#$%^&*).');
+            return false;
+          }
+      
+          // If all validations pass, the form will submit
+          return true;
+        }
+      </script>
+      
+</body>
+</html>
